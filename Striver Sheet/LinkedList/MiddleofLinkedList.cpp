@@ -36,3 +36,22 @@ Node *findMiddle(Node *head) {
     
     // Write your code here
 }
+
+
+
+#2
+
+Node *findMiddle(Node *head) {
+    Node *slow=head;
+    Node *fast=head;
+    while(fast->next!=NULL&&fast!=NULL)
+    {
+        fast=fast->next->next;
+        slow=slow->next;
+    }
+    return slow;
+    
+    
+    
+    // Write your code here
+}
