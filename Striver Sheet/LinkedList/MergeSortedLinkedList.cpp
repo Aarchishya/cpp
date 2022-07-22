@@ -1,17 +1,4 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        #include <bits/stdc++.h> 
+#include <bits/stdc++.h> 
 /************************************************************
 
     Following is the linked list node structure.
@@ -36,37 +23,34 @@ public:
 
 ************************************************************/
 
-
-    if(list1==NULL)
+Node<int>* sortTwoLists(Node<int>* first, Node<int>* second)
+{
+    if(first==NULL)
     {
-        return list2;
+        return second;
     }
-    if(list2==NULL)
+    if(second==NULL)
     {
-        return list1;
+        return first;
     }
-    if(list1->val>list2->val)
+    if(first->data>second->data)
     {
-        std::swap(list1,list2);
+        std::swap(first,second);
     }
-    ListNode* res=list1;
+    Node<int>* res=first;
     
-    while(list1!=NULL&&list2!=NULL)
+    while(first!=NULL&&second!=NULL)
     {
-       ListNode* temp=NULL;
-        while(list1!=NULL&&list1->val<list2->val)
+       Node<int>* temp=NULL;
+        while(first!=NULL&&first->data<=second->data)
         {
-            temp=list1;
-            list1=list1->next;
+            temp=first;
+            first=first->next;
         }
-        temp=list2;
-        std::swap(list1,list2);
+        temp->next=second;
+        std::swap(first,second);
     }
     return res;
     
     // Write your code here.
-
-
-        
-    }
-};
+}
