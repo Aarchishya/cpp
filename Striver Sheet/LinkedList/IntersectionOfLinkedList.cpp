@@ -28,3 +28,69 @@ int findIntersection(Node *firstHead, Node *secondHead)
     
     //Write your code here
 }
+
+
+
+
+#2
+
+
+#include <bits/stdc++.h> 
+/****************************************************************
+ 
+    Following is the class structure of the Node class:
+
+        class Node
+        {
+        public:
+	        int data;
+	        Node *next;
+	        Node(int data)
+	        {
+		        this->data = data;
+		        this->next = NULL;
+	        }
+        };
+
+*****************************************************************/
+
+int findIntersection(Node *firstHead, Node *secondHead)
+{
+    
+    Node *temp=firstHead;
+    Node *temp1=secondHead;
+    
+    if(firstHead==NULL||secondHead==NULL)
+    {
+        return -1;
+    }
+    while(temp!=temp1)
+    {
+        if(temp==NULL)
+        {
+            temp=secondHead;
+        }
+        else{
+            temp=temp->next;
+        }
+        if(temp1==NULL)
+        {
+            temp1=firstHead;
+        }
+        else{
+            temp1=temp1->next;
+        }
+    }
+    if(temp==NULL&&temp1==NULL)
+    {
+        return -1;
+    }
+    else
+    {
+       return temp->data; 
+    }
+    
+    
+    
+    //Write your code here
+}
