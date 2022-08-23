@@ -25,3 +25,27 @@ int maximumActivities(vector<int> &start, vector<int> &finish) {
     return count;
     // Write your code here.
 }
+
+#2
+
+
+#include<bits/stdc++.h>
+
+int maximumActivities(vector<int> &start, vector<int> &finish) {
+    vector<pair<int,int>> meetings ;
+       for(int i=0 ; i<start.size() ; i++)
+           meetings.push_back({finish[i],start[i]}) ;
+           sort(meetings.begin(), meetings.end()) ;
+           
+           int act=1 ;
+           int ending=meetings[0].first ;
+           for(int i=1 ; i<start.size() ; i++){
+               if(meetings[i].second>=ending){
+                   act++ ;
+                   ending=meetings[i].first ;
+               }
+           }
+           
+       return act ;
+    // Write your code here.
+}
